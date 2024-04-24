@@ -196,7 +196,120 @@ public class DateUtilTest {
 	    Assert.assertEquals(2024, date.getYear());
 	}
 	
-	//leap year
+	@Test
+	public void testId1B() {
+	    DateUtil date = new DateUtil(1, 6, 1994);
+	    date.increment();
+	    Assert.assertEquals(2, date.getDay());
+	    Assert.assertEquals(6, date.getMonth());
+	    Assert.assertEquals(1994, date.getYear());
+	}
+
+	@Test
+	public void testId2B() {
+	    DateUtil date = new DateUtil(2, 6, 1994);
+	    date.increment();
+	    Assert.assertEquals(3, date.getDay());
+	    Assert.assertEquals(6, date.getMonth());
+	    Assert.assertEquals(1994, date.getYear());
+	}
+
+	@Test
+	public void testId3B() {
+	    DateUtil date = new DateUtil(15, 6, 1994);
+	    date.increment();
+	    Assert.assertEquals(16, date.getDay());
+	    Assert.assertEquals(6, date.getMonth());
+	    Assert.assertEquals(1994, date.getYear());
+	}
+
+	@Test
+	public void testId4B() {
+	    DateUtil date = new DateUtil(30, 6, 1994);
+	    date.increment();
+	    Assert.assertEquals(1, date.getDay());
+	    Assert.assertEquals(7, date.getMonth());
+	    Assert.assertEquals(1994, date.getYear());
+	}
+
+	@Test(expected = RuntimeException.class)
+	public void test5B() {
+	    new DateUtil(31, 6, 1994);
+	}
+
+	@Test
+	public void testId6B() {
+	    DateUtil date = new DateUtil(15, 1, 1994);
+	    date.increment();
+	    Assert.assertEquals(16, date.getDay());
+	    Assert.assertEquals(1, date.getMonth());
+	    Assert.assertEquals(1994, date.getYear());
+	}
+
+	@Test
+	public void testId7B() {
+	    DateUtil date = new DateUtil(15, 2, 1994);
+	    date.increment();
+	    Assert.assertEquals(16, date.getDay());
+	    Assert.assertEquals(2, date.getMonth());
+	    Assert.assertEquals(1994, date.getYear());
+	}
+
+	@Test
+	public void testId8B() {
+	    DateUtil date = new DateUtil(15, 11, 1994);
+	    date.increment();
+	    Assert.assertEquals(16, date.getDay());
+	    Assert.assertEquals(11, date.getMonth());
+	    Assert.assertEquals(1994, date.getYear());
+	}
+
+	@Test
+	public void testId9B() {
+	    DateUtil date = new DateUtil(15, 12, 1994);
+	    date.increment();
+	    Assert.assertEquals(16, date.getDay());
+	    Assert.assertEquals(12, date.getMonth());
+	    Assert.assertEquals(1994, date.getYear());
+	}
+
+	@Test
+	public void testId10B() {
+	    DateUtil date = new DateUtil(15, 6, 1700);
+	    date.increment();
+	    Assert.assertEquals(16, date.getDay());
+	    Assert.assertEquals(6, date.getMonth());
+	    Assert.assertEquals(1700, date.getYear());
+	}
+
+	@Test
+	public void testId11B() {
+	    DateUtil date = new DateUtil(15, 6, 1701);
+	    date.increment();
+	    Assert.assertEquals(16, date.getDay());
+	    Assert.assertEquals(6, date.getMonth());
+	    Assert.assertEquals(1701, date.getYear());
+	}
+
+	@Test
+	public void testId12B() {
+	    DateUtil date = new DateUtil(15, 6, 2023);
+	    date.increment();
+	    Assert.assertEquals(16, date.getDay());
+	    Assert.assertEquals(6, date.getMonth());
+	    Assert.assertEquals(2023, date.getYear());
+	}
+
+	@Test
+	public void testId13B() {
+	    DateUtil date = new DateUtil(15, 6, 2024);
+	    date.increment();
+	    Assert.assertEquals(16, date.getDay());
+	    Assert.assertEquals(6, date.getMonth());
+	    Assert.assertEquals(2024, date.getYear());
+	}
+
+	//leap year code(Febrary)
 	@Test
 	public void testFebruaryLeapYear29ShouldIncrementToMarch1() {
 	    DateUtil date = new DateUtil(29, 2, 2020);
